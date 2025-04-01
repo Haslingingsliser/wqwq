@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("registrationForm");
     const popup = document.getElementById("popup");
-    const closePopup = document.getElementById("closePopup");
     const playButton = document.getElementById("playButton");
-    const soundcloudPlayer = document.getElementById("soundcloudPlayer");
+    const soundcloudOverlay = document.querySelector(".soundcloud-overlay");
 
     form.addEventListener("submit", function (event) {
         event.preventDefault(); // Hindari reload form
@@ -21,11 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     playButton.addEventListener("click", function () {
-        soundcloudPlayer.classList.remove("hidden"); // Tampilkan SoundCloud player
-        playButton.style.display = "none"; // Sembunyikan tombol Play setelah diklik
-    });
+        // Hapus overlay agar SoundCloud bisa dimainkan
+        soundcloudOverlay.style.display = "none";
 
-    closePopup.addEventListener("click", function () {
-        popup.style.display = "none";
+        // Ambil iframe player
+        let iframe = document.getElementById("scPlayer");
+        let player = new SC.Widget(iframe);
+
+        // Mainkan lagu setelah tombol Play ditekan
+        player.play();
     });
 });
