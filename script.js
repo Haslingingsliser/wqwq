@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("registrationForm");
     const popup = document.getElementById("popup");
     const closePopup = document.getElementById("closePopup");
-    const audioSource = document.getElementById("audioSource");
-    const audioPlayer = document.getElementById("audioPlayer");
+    const playButton = document.getElementById("playButton");
+    const soundcloudPlayer = document.getElementById("soundcloudPlayer");
 
     form.addEventListener("submit", function (event) {
         event.preventDefault(); // Hindari reload form
@@ -15,13 +15,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (nickname && server && reason) {
             popup.style.display = "flex"; // Munculkan pop-up
-            
-            // Atur sumber audio (tapi tidak otomatis memutar)
-            audioSource.src = "https://soundcloud.com/rick-astley-official/never-gonna-give-you-up-4?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing";
-            audioPlayer.load(); // Muat ulang sumber agar bisa diputar
         } else {
             alert("Harap isi semua field sebelum menekan Done.");
         }
+    });
+
+    playButton.addEventListener("click", function () {
+        soundcloudPlayer.classList.remove("hidden"); // Tampilkan SoundCloud player
+        playButton.style.display = "none"; // Sembunyikan tombol Play setelah diklik
     });
 
     closePopup.addEventListener("click", function () {
