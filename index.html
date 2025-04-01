@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ruby Mining Form</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/jpeg" href="assets/favicon.jpg"> <!-- Favicon diperbaiki -->
+    <link rel="icon" type="image/png" href="assets/favicon.jpg"> <!-- Favicon -->
 </head>
 <body>
     <div class="container">
@@ -29,13 +29,13 @@
     <div id="popup" class="popup">
         <div class="popup-content">
             <p>Fullkan volume anda</p>
-            <div id="soundcloudPlayer" class="hidden">
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-                    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/rick-astley-official/never-gonna-give-you-up-4&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+            <div class="soundcloud-container">
+                <iframe id="scPlayer" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+                    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/rick-astley-official/never-gonna-give-you-up-4&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false">
                 </iframe>
+                <div class="soundcloud-overlay"></div>
             </div>
             <button id="playButton">Play</button>
-            <button id="closePopup">Tutup</button>
         </div>
     </div>
 
