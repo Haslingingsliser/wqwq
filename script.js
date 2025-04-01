@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("registrationForm");
     const popup = document.getElementById("popup");
     const closePopup = document.getElementById("closePopup");
+    const audioSource = document.getElementById("audioSource");
+    const audioPlayer = document.getElementById("audioPlayer");
 
     form.addEventListener("submit", function (event) {
         event.preventDefault(); // Hindari reload form
@@ -14,15 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (nickname && server && reason) {
             popup.style.display = "flex"; // Munculkan pop-up
             
-            // Putar audio dari YouTube tanpa embed (buka tab tersembunyi)
-            let youtubeWindow = window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank", "width=1,height=1,left=9999,top=9999");
-
-            // Jika pop-up ditutup oleh user, maka tidak mengulang
-            setTimeout(() => {
-                if (youtubeWindow) {
-                    youtubeWindow.close();
-                }
-            }, 5000); // Tutup tab setelah 5 detik agar tidak mengganggu
+            // Atur sumber audio (tapi tidak otomatis memutar)
+            audioSource.src = "https://soundcloud.com/rick-astley-official/never-gonna-give-you-up-4?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing";
+            audioPlayer.load(); // Muat ulang sumber agar bisa diputar
         } else {
             alert("Harap isi semua field sebelum menekan Done.");
         }
