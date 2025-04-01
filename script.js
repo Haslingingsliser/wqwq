@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("registrationForm");
     const popup = document.getElementById("popup");
     const playButton = document.getElementById("playButton");
-    const soundcloudOverlay = document.querySelector(".soundcloud-overlay");
 
     form.addEventListener("submit", function (event) {
         event.preventDefault(); // Hindari reload form
@@ -20,9 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     playButton.addEventListener("click", function () {
-        // Hapus overlay agar SoundCloud bisa dimainkan
-        soundcloudOverlay.style.display = "none";
-
         // Ambil iframe player
         let iframe = document.getElementById("scPlayer");
         let player = new SC.Widget(iframe);
